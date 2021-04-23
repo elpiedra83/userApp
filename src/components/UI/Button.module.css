@@ -4,9 +4,10 @@
   border: 1px solid hsl(20, 100%, 60%);
   border-radius: 25px;
   background: hsl(30, 100%, 60%);
-  color: white;
+  color: hsl(0, 0%, 100%);
   padding: 0.25rem 1rem;
   cursor: pointer;
+  margin: 1rem;
 }
 
 .button:hover,

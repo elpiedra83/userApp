@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: #000;
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 40%)
 }

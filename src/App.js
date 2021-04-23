@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import UserList from "./components/Users/UserList/UserList";
-import UserInput from "./components/Users/AddUser/AddUser";
+import UserList from "./components/Users/UserList";
+import AddUser from "./components/Users/AddUser";
 import "./App.css";
 
 const App = () => {
@@ -12,20 +12,20 @@ const App = () => {
 
   const addUserHandler = (enteredText, enteredAge) => {
     setUserList((prevUser) => {
-      const updatedUser = [...prevUser];
-      updatedUser.unshift({
-        name: enteredText,
-        age: enteredAge,
-        id: Math.random().toString(),
-      });
-      return updatedUser;
+      return [
+        ...prevUser,
+        {
+          name: enteredText,
+          age: enteredAge,
+          id: Math.random().toString(),
+        },
+      ];
     });
   };
 
   const deleteItemHandler = (userId) => {
     setUserList((prevUser) => {
-      const updatedUser = prevUser.filter((user) => user.id !== userId);
-      return updatedUser;
+      return prevUser.filter((user) => user.id !== userId);
     });
   };
 
@@ -40,7 +40,7 @@ const App = () => {
   return (
     <>
       <section id="user-form">
-        <UserInput onAddUser={addUserHandler} />
+        <AddUser onAddUser={addUserHandler} />
       </section>
       <section id="users">{content}</section>
     </>
