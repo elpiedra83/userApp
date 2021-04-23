@@ -1,8 +1,9 @@
 import { useState } from "react";
-import styles from "./UserInput.module.css";
+import Card from "../../UI/Card/Card";
 import Button from "../../UI/Button/Button";
+import classes from "./AddUser.module.css";
 
-const UserInput = ({ onAddUser }) => {
+const AddUser = ({ onAddUser }) => {
   const [userName, setUserName] = useState("");
   const [age, setAge] = useState("");
   const [userNameIsValid, setUserNameIsValid] = useState(true);
@@ -22,7 +23,7 @@ const UserInput = ({ onAddUser }) => {
     setAge(event.target.value);
   };
 
-  const formSubmitHandler = (event) => {
+  const addUserHandler = (event) => {
     event.preventDefault();
     if (userName.trim().length === 0 || age.trim().length === 0) {
       setUserNameIsValid(false);
@@ -30,25 +31,37 @@ const UserInput = ({ onAddUser }) => {
       return;
     }
     onAddUser(userName, age);
+    setUserName("");
+    setAge("");
   };
 
   return (
-    <>
-      <form onSubmit={formSubmitHandler}>
-        <div className={styles["form-control"]}>
+    <Card className={classes.input}>
+      <form onSubmit={addUserHandler}>
+        <div>
           <label htmlFor="username">Username</label>
-          <input id="username" type="text" onChange={userNameChangeHandler} />
+          <input
+            id="username"
+            type="text"
+            value={userName}
+            onChange={userNameChangeHandler}
+          />
         </div>
-        <div className={styles["form-control"]}>
-          <label htmlFor="age" placeholder="Years">
-            Age (Years)
-          </label>
-          <input id="age" type="number" min="0" onChange={ageChangeHandler} />
+        <div>
+          <label htmlFor="age">Age</label>
+          <input
+            id="age"
+            type="number"
+            min="0"
+            placeholder="Years"
+            value={age}
+            onChange={ageChangeHandler}
+          />
         </div>
         <Button type="submit">Add User</Button>
       </form>
-    </>
+    </Card>
   );
 };
 
-export default UserInput;
+export default AddUser;

@@ -1,25 +1,22 @@
 .button {
   width: 100%;
   font: inherit;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid hsl(30, 100%, 60%);
-  color: hsl(0, 0%, 100%);
-  background: hsl(30, 100%, 60%);
-  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.20);
-  cursor: pointer;
+  border: 1px solid hsl(20, 100%, 60%);
   border-radius: 25px;
-}
-
-.button:focus {
-  outline: none;
+  background: hsl(30, 100%, 60%);
+  color: white;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
 }
 
 .button:hover,
 .button:active {
   background: hsl(20, 100%, 60%);
   border-color: hsl(20, 100%, 60%);
-  ;
-  box-shadow: 0 0 8px hsla(0, 0%, 0%, 0.20);
+}
+
+.button:focus {
+  outline: none;
 }
 
 @media (min-width: 768px) {

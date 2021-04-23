@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import UserList from "./components/Users/UserList/UserList";
-import UserInput from "./components/Users/UserInput/UserInput";
+import UserInput from "./components/Users/AddUser/AddUser";
 import "./App.css";
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
   );
 
   if (userList.length > 0) {
-    content = <UserList items={userList} onDeleteItem={deleteItemHandler} />;
+    content = <UserList users={userList} onDeleteItem={deleteItemHandler} />;
   }
 
   return (
